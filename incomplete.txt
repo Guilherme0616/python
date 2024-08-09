@@ -1,0 +1,32 @@
+while True:
+    nome_lista = []
+    for i in range(5):
+        nome_lista.append(input("Digite um nome a ser adicionado à lista: "))
+        
+    #search
+    num = int(input("Insira uma localização na lista (de 0 a 4): "))
+    while num < 0 or num > 4:
+        num = int(input("Por favor, insira uma localização válida da lista (de 0 a 4): "))
+    print("Item selecionado:",nome_lista[num])
+    
+    #menu com 3 opções: ordem alfabética, exclusão, reset
+    print("""Escolha uma opção:
+    a) Exibir a lista em ordem alfabética. 
+    b) Excluir um item escolhido (de 0 a 4)
+    c) Reinicia o código por completo.
+    d) Parar a execução.
+    
+    """)
+    
+    esc = input("Escolha uma das opções: ").lower()
+    while esc not in ['a','b','c','d']:
+            esc = input("Escolha uma opção válida: ").lower()
+    
+    test = 0
+    while test == 0:
+        if esc == 'a':
+            sorted_list = sorted(nome_lista)
+            print(sorted_list)
+        
+        if esc == 'b':
+            nome_lista.pop(int(input("Insira uma posição da lista (0 a 4)")))
