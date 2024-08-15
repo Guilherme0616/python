@@ -22,11 +22,24 @@ while True:
     while esc not in ['a','b','c','d']:
             esc = input("Escolha uma opção válida: ").lower()
     
-    test = 0
-    while test == 0:
+    ext1 = 0
+    while ext1 == 0:
         if esc == 'a':
             sorted_list = sorted(nome_lista)
             print(sorted_list)
+            ext1 = 1
         
         if esc == 'b':
-            nome_lista.pop(int(input("Insira uma posição da lista (0 a 4)")))
+            indx_b = (int(input("Insira uma posição da lista (0 a 4): ")))
+            while indx_b not in [0,1,2,3,4]:
+                indx_b = (int(input("Por favor, insira uma posição válida na lista (de 0 a 4): ")))
+            nome_lista.pop(indx_b)
+            print(nome_lista)
+            ext1 = 1 
+        
+        if esc == 'c':
+            break
+        
+        if esc == 'd':
+            print("Encerrando execução.")
+            exit()
