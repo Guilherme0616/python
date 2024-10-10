@@ -1,0 +1,44 @@
+# Objetivo: criar um programa que solicite nome do funcionário, carga horária
+# e valor da hora e calcular o salário (horas * valor da hora). Realizar a
+# entrada de dados até que o usuário deseje sair,armazenar tudo em lista.
+# Ao final da entrada dos três dados, o programa deve mostrar
+# quantos itens foram adicionados e solicitar um nome que esteja na lista para
+# calcular o INSS. Ficar no loop até que o usuário decida sair.
+
+# add equação simples no index final para subtrair um número por conveniência do usuário! <-----
+
+v_nome = []
+v_cgh = []
+v_vh = []
+v_sal = []
+
+while True:
+    try:
+        print("Bem vindo à calculadora de salários, caso queira sair, basta digitar 'sair' em qualquer campo.")
+        v_nome.append(str(input("Digite o nome do funcionário: ")))
+        if 'sair'.lower() in v_nome:
+            print("Finalizando execução.")
+            break
+
+        v_cgh.append(int(input("Digite a carga horária: ")))
+        if 'sair'.lower() in v_cgh:
+            print("Finalizando execução.")
+            break
+
+        v_vh.append(float(input("Digite o valor da hora: ")))
+        if 'sair'.lower() in v_vh:
+            print("Finalizando execução.")
+            break
+
+        # Cálculo do salário:
+        v_sal.append(v_cgh[-1] * v_vh[-1])
+        print(f"Salário calculado: R${v_sal}")
+
+        print(f"""Funcionários: {v_nome}.
+        Valores de carga horária: {v_cgh}.
+        Valores de hora: R${v_vh}.
+        Salários: R${v_sal}.\n""")
+
+    except ValueError:
+        print("Erro de digitação, por favor, insira as informações conforme solicitado.")
+        
