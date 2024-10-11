@@ -1,11 +1,8 @@
-# Objetivo: criar um programa que solicite nome do funcionário, carga horária
-# e valor da hora e calcular o salário (horas * valor da hora). Realizar a
-# entrada de dados até que o usuário deseje sair,armazenar tudo em lista.
-# Ao final da entrada dos três dados, o programa deve mostrar
-# quantos itens foram adicionados e solicitar um nome que esteja na lista para
+# Objetivo restante:
+# no final, mostrar os itens foram adicionados e solicitar um nome que esteja na lista para
 # calcular o INSS. Ficar no loop até que o usuário decida sair.
-
-# add equação simples no index final para subtrair um número por conveniência do usuário! <-----
+# add equação simples no index final para subtrair um número pela conveniência do usuário! <-----
+# add elo artificial entre as variaveis, nome = index para o resto das vars
 
 v_nome = []
 v_cgh = []
@@ -17,20 +14,20 @@ print("Bem vindo à calculadora de salários, caso queira sair, basta digitar 's
 while True:
     try:
         v_nome.append(input("\nDigite o nome do funcionário: "))
-        
-        contains_number = any(char.isdigit() for char in v_nome[-1])
+
+        v_nome_cn = any(char.isdigit() for char in v_nome[-1])
         while any(char.isdigit() for char in v_nome[-1]):
             v_nome[-1] = input("\nDigite um nome válido: ")
         if 'sair'.lower() in v_nome:
             print("Finalizando execução.")
             break
 
-        v_cgh.append(int(input("Digite a carga horária: ")))
+        v_cgh.append(int(input("\nDigite a carga horária: ")))
         if 'sair'.lower() in v_cgh:
             print("Finalizando execução.")
             break
 
-        v_vh.append(float(input("Digite o valor da hora: ")))
+        v_vh.append(input("Digite o valor da hora: "))
         if 'sair'.lower() in v_vh:
             print("Finalizando execução.")
             break
