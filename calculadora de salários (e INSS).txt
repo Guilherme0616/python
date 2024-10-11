@@ -12,10 +12,15 @@ v_cgh = []
 v_vh = []
 v_sal = []
 
+print("Bem vindo à calculadora de salários, caso queira sair, basta digitar 'sair' em qualquer campo.")
+
 while True:
     try:
-        print("Bem vindo à calculadora de salários, caso queira sair, basta digitar 'sair' em qualquer campo.")
-        v_nome.append(str(input("Digite o nome do funcionário: ")))
+        v_nome.append(input("\nDigite o nome do funcionário: "))
+        
+        contains_number = any(char.isdigit() for char in v_nome[-1])
+        while any(char.isdigit() for char in v_nome[-1]):
+            v_nome[-1] = input("\nDigite um nome válido: ")
         if 'sair'.lower() in v_nome:
             print("Finalizando execução.")
             break
@@ -39,6 +44,5 @@ while True:
         Valores de hora: R${v_vh}.
         Salários: R${v_sal}.\n""")
 
-    except ValueError:
-        print("Erro de digitação, por favor, insira as informações conforme solicitado.")
-        
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
